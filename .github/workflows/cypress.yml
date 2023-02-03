@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   cypress-run:
+    name: Run Cypress tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,3 +21,8 @@ jobs:
         with:
           start: npm run export
           wait-on: "http://localhost:3000"
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
