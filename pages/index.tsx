@@ -16,7 +16,12 @@ const data = {
 const Home: NextPage = () => {
   return (
     <div>
-      <Bar style={{ maxHeight: "200px" }} options={options} data={data} />
+      <Bar
+        style={{ maxHeight: "200px" }}
+        options={options}
+        data={data}
+        data-testid="chart"
+      />
     </div>
   );
 };
